@@ -1,9 +1,8 @@
 <template>
     <div class="home">
         <div class="nav">
-            <span v-for="tag in tags">
-<!--                <input type="checkbox" v-model="tagsChecked[key]"><label :class="{ [tag.color]: true, striketrought: !tagsChecked[key] }">{{ tag.title }}</label>-->
-                <input type="checkbox" v-model="tagsChecked"><label :class="{ [tag.color]: true, striketrought: !tagsChecked }">{{ tag.title }}</label>
+            <span v-for="(tag, key) in tags" :key="key">
+                <input type="checkbox" v-model="tagsChecked[key]"><label :class="{ [tag.color]: true, striketrought: !tagsChecked[key] }">{{ tag.title }}</label>
             </span>
         </div>
     </div>
@@ -28,25 +27,12 @@
         tagsChecked:any = this.buildDefaultTagsCheck()
 
         buildDefaultTagsCheck() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //     let defaultTagChecked: any = {}
-        //     for (const tag in this.tags){
-        //         defaultTagChecked[tag] = true
-        //         Object.assign(defaultTagChecked, {tag: true})
-        //     }
-        //     return defaultTagChecked
+            let defaultTagChecked: any = {}
+            for (const tag in this.tags){
+                defaultTagChecked[tag] = true
+                Object.assign(defaultTagChecked, {tag: true})
+            }
+            return defaultTagChecked
         }
     }
 </script>
