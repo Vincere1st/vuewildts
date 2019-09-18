@@ -57,40 +57,20 @@
         }
 
         ticketsWithTagsSelected() {
-            // return Object.values(this.tickets).filter((ticket) => {
-            //     for (const tag of ticket.tags) {
-            //         if (this.tagsSelected().includes(tag)){
-            //             return true
-            //         }
-            //         return false
-            //     }
-            // })
             let ticketWithIndex = this.tickets
-                for (const index in ticketWithIndex) {
-                    ticketWithIndex[index].index = parseInt(index)
-                }
+            for (const index in ticketWithIndex) {
+                ticketWithIndex[index].index = parseInt(index)
+            }
 
             let ticketsFilter = []
-                for (const ticket of Object.values(ticketWithIndex)) {
-                    for (const tag of ticket.tags) {
-                        console.log(tag +' tag')
-                        if (this.tagsSelected().includes(tag)) {
-                            console.log(ticket.index + ' index')
-                            ticketsFilter.push(ticket)
-                        }
+            for (const ticket of Object.values(ticketWithIndex)) {
+                let index = ticket.index
+                for (const tag of ticket.tags) {
+                    if (this.tagsSelected().includes(tag)) {
+                        ticketsFilter[index] = ticket
                     }
                 }
-
-
-            // for (const tag of this.tagsSelected()) {
-            //     console.log(tag)
-            //     for (const ticket of Object.values(this.tickets)) {
-            //         console.log(ticket.tags)
-            //         if (ticket.tags.includes(tag)){
-            //             ticketsFilter.push(ticket)
-            //         }
-            //     }
-            // }
+            }
             return ticketsFilter
         }
     }
