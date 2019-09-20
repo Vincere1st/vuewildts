@@ -29,7 +29,7 @@ export default {
       column: 4,
       tags: [1, 6],
       created_at: '2018-06-12T10:01:27.369Z',
-      updated_at: '2018-06-12T10:01:27.369Z'
+      updated_at: '2018-06-14T10:01:27.369Z'
     },
     2: {
       content: 'Very well. Death! By exile',
